@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gemnastik_app/view/comunicate_page.dart';
 import 'package:gemnastik_app/view/homepage.dart';
 
 class BaseWelcomepage extends StatelessWidget {

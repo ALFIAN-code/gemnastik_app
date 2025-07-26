@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gemnastik_app/view/cominicate_page2.dart';
+import 'package:gemnastik_app/view/learning_page.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -6,154 +8,135 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.menu),
-        title: Text('Lorem Ipsum'),
-        actions: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            height: 56,
-            decoration: BoxDecoration(
-              color: Colors.red.shade100,
-              borderRadius: BorderRadius.circular(1000),
-            ),
-            child: Row(
-              children: [
-                Icon(Icons.videocam_outlined, color: Colors.red.shade900),
-                SizedBox(width: 10),
-                Text(
-                  'Kamera aktif',
-                  style: TextStyle(color: Colors.red.shade900),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 30, 20, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Selamat datang!',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black87,
                 ),
-              ],
-            ),
+              ),
+              SizedBox(height: 5),
+              Text(
+                'Nama App',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                'Bantu teman tul untuk komunikasi tanpa halangan dengan teman dengar',
+                style: TextStyle(fontSize: 16, color: Colors.black),
+              ),
+              SizedBox(height: 20),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  decoration: BoxDecoration(
+                    color: Color(0xffDEE3E6),
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(30),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      MenuItem(
+                        onTap:
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ComunicatePage2(),
+                              ),
+                            ),
+                        color: Colors.green.shade300,
+                        title: 'Teman Komunikasi',
+                        subtitle: 'Bantu kamu mengobrol dengan Teman Dengar',
+                      ),
+                      SizedBox(height: 20),
+                      MenuItem(
+                        color: Colors.blueGrey.shade400,
+                        title: 'Teman Komunikasi',
+                        subtitle: 'Bantu kamu mengobrol dengan Teman Dengar',
+                        onTap:
+                            () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LearningPage(),
+                              ),
+                            ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
-      body: Center(
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  const MenuItem({
+    super.key,
+    required this.color,
+    required this.title,
+    required this.subtitle,
+    this.onTap,
+  });
+
+  final Color color;
+  final String title;
+  final String subtitle;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        clipBehavior: Clip.hardEdge,
+        height: 200,
+        padding: EdgeInsets.all(8),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(30),
+        ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               child: Container(
-                margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-                clipBehavior: Clip.antiAlias,
-                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color(0xffDBE4E8),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Transkrip isyarat',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Expanded(
-                      child: Text(
-                        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.green.shade900,
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.volume_up,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                'Ucapkan',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Container(
-                          padding: EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.green.shade900,
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.videocam_outlined,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                'Ucapkan',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  color: Colors.grey.shade200,
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
             ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.all(20),
-                clipBehavior: Clip.antiAlias,
-                margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple.shade100,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Transkrip Suara',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    Expanded(
-                      child: Text(
-                        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.deepPurple,
-                          ),
-                          child: Icon(Icons.mic, color: Colors.white, size: 25),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(subtitle, style: TextStyle(fontSize: 14)),
+                ],
               ),
             ),
+            SizedBox(height: 10),
           ],
         ),
       ),
