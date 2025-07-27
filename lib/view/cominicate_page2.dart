@@ -30,7 +30,7 @@ class _ComunicatePageState extends State<ComunicatePage2> {
       throw Exception('Izin kamera ditolak');
     }
     final frontCamera = cameras.firstWhere(
-      (c) => c.lensDirection == CameraLensDirection.back,
+      (c) => c.lensDirection == CameraLensDirection.front,
       orElse: () {
         if (cameras.isEmpty) {
           throw Exception('Tidak ada kamera ditemukan di perangkat');
@@ -140,7 +140,7 @@ class _ComunicatePageState extends State<ComunicatePage2> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: const Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras enim velit, commodo quis facilisis et.",
+                          "halo, apa bagaimana kabarmu hari ini?",
                           style: TextStyle(fontSize: 14),
                         ),
                       ),
@@ -171,7 +171,7 @@ class _ComunicatePageState extends State<ComunicatePage2> {
                       const SizedBox(height: 12),
                       Expanded(
                         child: const Text(
-                          'Makan apa hari ini? Makan apa hari ini? Makan apa hari ini? Makan apa hari ini?',
+                          'hallo, kabarku baik, bagaimana denganmu?',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
