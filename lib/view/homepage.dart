@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gemnastik_app/view/cominicate_page2.dart';
+import 'package:gemnastik_app/view/comunicate_page.dart';
 import 'package:gemnastik_app/view/learning_page.dart';
 
 class Homepage extends StatelessWidget {
@@ -52,7 +52,7 @@ class Homepage extends StatelessWidget {
                             () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ComunicatePage2(),
+                                builder: (context) => comunicatePage(),
                               ),
                             ),
                         color: Colors.green.shade300,
